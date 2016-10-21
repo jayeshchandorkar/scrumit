@@ -1,0 +1,103 @@
+
+<template name="retro">
+
+<div class="row">
+  <div class="container col-md-6">
+    <header>
+      <h1>Do List</h1>
+    </header>
+
+    <ul class="doList">
+      {{#each tasks}}
+     <b> {{> task}} </b>
+      {{/each}}
+    </ul>
+
+    <form class="new-task">
+        <input type="text" name="text" placeholder="Type something you want to start doing" />
+      </form>
+  </div>
+
+
+  <div class="container col-md-6">
+    <header>
+      <h1>Dont List</h1>
+    </header>
+
+    <ul class="dontList">
+      {{#each donts}}
+       <b> {{> dont}} </b>
+      {{/each}}
+    </ul>
+
+     <form class="new-dont">
+        <input type="text" name="text" placeholder="Type something you want to stop doing" />
+      </form>
+  </div>
+</div>
+
+
+</template>
+
+<template name="task">
+  <li class="{{#if checked}}checked{{/if}} retro">
+    {{#if isLoggedInUser createdBy}}
+      <button class="delete">&times;</button>
+    {{/if}}
+
+    <span class="text">{{text}}</span>
+
+    <div class="right">
+        <span class="username">by {{createdBy}}</span>
+       {{> dovote}}       
+    </div>
+
+  </li>
+</template>
+
+
+<template name="dont">
+  <li class="{{#if checked}}checked{{/if}} retro">
+    
+    {{#if isLoggedInUser createdBy}}
+      <button class="delete">&times;</button>
+    {{/if}}
+
+    <span class="text">{{text}}</span>
+    
+    <div class="right">
+        <span class="username">by {{createdBy}}</span>
+        {{> dontvote}}
+    </div>
+  </li>
+</template>
+
+<template name="dovote">
+  <div class="vote">
+    <a id="voteup" href="">
+      <span class="fa fa-thumbs-up" title="Vote up"></span>
+    </a>
+    <span>{{upCount}}</span>
+  </div>
+  <div class="vote">
+    <a id="votedown" href="">
+      <span class="fa fa-thumbs-down" title="Vote down"></span>
+    </a>
+    <span>{{downCount}}</span>
+  </div>
+</template>
+
+<template name="dontvote">
+  <div class="vote">
+    <a id="voteup" href="">
+      <span class="fa fa-thumbs-up" title="Vote up"></span>
+    </a>
+    <span>{{upCount}}</span>
+  </div>
+  <div class="vote">
+    <a id="votedown" href="">
+      <span class="fa fa-thumbs-down" title="Vote down"></span>
+    </a>
+    <span>{{downCount}}</span>
+  </div>
+</template>

@@ -1,0 +1,75 @@
+<template name="home">
+
+ <div id="myCarousel" class="carousel slide">
+  <ol class="carousel-indicators">
+    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+    <li data-target="#myCarousel" data-slide-to="1"></li>
+  </ol>
+  <!-- Carousel items -->
+  <div class="carousel-inner">
+    <div class="active item" style="padding-left: 125px;"> <img src="/landing_problem.png"></div>
+    <div class="item"  style=""><img src="/landing_solution.png"></div>
+  </div>
+  <!-- Carousel nav -->
+  <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+  <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+</div>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+<script src="script.js"></script>
+</template>
+
+<template name = 'about'>
+<table width="100%" align="center">
+<tr >
+<td  align="right"> <img src="/tapas.png"> </td>
+<td  >  </td>
+</tr>
+
+<tr >
+<td  align="right" > <span style=" font-family: cursive;;font-weight:bold ;padding-left:30px;">Sustained efforts ... </span> </td>
+<td  >  </td>
+</tr>
+
+<tr>
+  <td align="center"><span class="name1">Abhay </span><img class="img-circular" src="/Abhay.jpg"> </td>
+   <td >
+ <span class="name1">Jayesh </span> <img class="img-circular" src="/Jayesh.jpg">
+</td>
+</tr>
+
+<tr>
+   <td align="center"> <span class="name1">Nikhil </span><img class="img-circular" src="/Nikhil.jpg"> </td>
+   <td >
+  <span class="name1">Johnson </span> (Just a developer)<img class="img-circular" src="/Johnson.jpg">
+</td>
+</tr>
+
+</table>
+
+
+</template>
+
+<template name = 'calendarView'>
+  <div>
+      <h2>Team Calendar</h2>
+      {{> calendar}}
+  </div>
+</template>
+
+<template name = 'fullArticle'>
+  <h2>{{ title }}</h2>
+  <p>{{ body }}</p>
+</template>
+
+<template name = 'retrospective'>
+  <h2>Retrospective</h2>
+   {{> retro}}
+
+</template>
+
+<template name = 'daysOffClmn'>
+  <div style="color: red;">
+   {{datesOff}}
+  </div>
+</template>

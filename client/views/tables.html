@@ -1,0 +1,76 @@
+
+
+ <template name="addCapacityForm">
+  <form>
+
+    <div class="row">
+
+     <div class="col-md-4">
+     <span class="input-group datetimepicker" style="width : 200px">
+       <input name="startDate" id="startDate" class="set-due-date form-control" type="text" placeholder="Scrum Start Date" {{scrumStartDate}}/>
+       <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+     </span>
+   </div>
+   <div class="col-md-4">
+      <span class="input-group datetimepicker" style="width : 200px">
+       <input name="endDate" id="endDate" class="set-due-date form-control" type="text" placeholder="Scrum End  Date"/>
+       <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+     </span>
+   </div>
+
+ <div class="col-md-4" align="left">
+  <button type="submit" class="btn btn-default">View</button>
+ </div>
+  </div>
+
+
+</form>
+</template>
+
+
+
+
+<template name="capacityView">
+  <div id="outer">
+    {{> addCapacityForm}}
+
+    {{> capacityBoard}}
+
+  </div>
+</template>
+
+<template name="capacityBoard">
+  <div style="height:25px;"></div>
+  <div id="table" align="center">
+    {{> reactiveTable collection=teamMembers settings=tableSettings class="table table-bordered table-hover"}}
+  </div>
+
+  <div class="right totalCapacity">Total Capacity: {{teamTotalCapacity}}</div>
+  
+</template>
+
+
+<template name="teamView">
+  <div id="teamOuter">
+
+    {{> teamBoard}}
+
+  </div>
+</template>
+
+<template name="teamBoard">
+  <div id="teamtable" align="center">
+    {{> reactiveTable collection=users settings=tableSettings class="table table-bordered table-hover"}}
+  </div>
+</template>
+
+<template name="totalCapacity">
+  {{totalCapacity}}
+</template>
+
+
+
+
+
+
+

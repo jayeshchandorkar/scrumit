@@ -1,0 +1,130 @@
+<template name="calendar">
+<div id="calendar">
+</div>
+</template>
+
+<template name="new_event_modal">
+<div class="anti-modal-box" id="new-event-modal">
+  <div class="anti-modal-header">
+    <div class="anti-modal-title">Schedule an Event</div>
+    <div class="anti-modal-closer">&times;</div>
+  </div>
+  <div class="anti-modal-body">
+    <div class="row-fluid">
+      <div class="span12">
+        <div class="alert hide">
+          <h4></h4>
+          <ul></ul>
+        </div>
+        <form name="newEvent" class="form-horizontal">
+          <fieldset>
+            <input name="_id" type="hidden" value="{{_id}}" />
+            <div class="control-group">
+              <label class="control-label">Title</label>
+              <div class="controls">
+                <input id="title" name="title" type="text" placeholder="Event Title" class="input-xlarge" required="" value="{{title}}" />
+
+              </div>
+            </div>
+
+            <div class="control-group">
+              <label class="control-label">Start Date</label>
+              <div class="controls">
+                <span class="input-group datetimepicker" style="width : 200px">
+                   <input name="start" id="start" class="set-due-date form-control" type="text" placeholder="Start Date" value="{{start}}"/>
+                    <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                 </span>
+              </div>
+            </div>
+
+            <div class="control-group">
+              <label class="control-label">End Date</label>
+              <div class="controls">
+                <span class="input-group datetimepicker" style="width : 200px">
+                   <input name="end" id="end" class="set-due-date form-control" type="text" placeholder="End Date" value="{{end}}"/>
+                    <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                 </span>
+              </div>
+            </div>
+
+            <div class="control-group">
+              <label class="control-label">All Day</label>
+              <div class="controls">
+                <input type="checkbox" name="allDay" value="{{allDay}}" checked="{{allDay}}" />
+              </div>
+            </div>           
+
+            <div class="control-group">
+              <label class="control-label">Event Type</label>
+              <div class="controls">
+                {{> eventTypeControl}}
+              </div>
+            </div>
+
+            <div class="control-group">
+              <label class="control-label">Members</label>
+              <div class="controls">
+                {{> memberControl}}
+              </div>
+            </div>              
+
+            <div class="control-group">
+              <label class="control-label"></label>
+              <div class="controls">
+                <button type="submit" id="save-event" name="save-event" class="btn btn-success">Save</button>
+              </div>
+            </div>
+
+          </fieldset>
+        </form>
+      </div>
+    </div>
+  </div>  
+</div>
+</template>
+
+<template name="event_details">
+<div class="anti-modal-box" id="event-details-modal">
+  <div class="anti-modal-header">
+    <div class="anti-modal-title">{{title}}</div>
+    <div class="anti-modal-closer">&times;</div>
+  </div>
+  <div class="anti-modal-body">
+    <ul>
+      <li>
+      When: {{start}}
+      </li>
+      <li>
+      Until: {{end}}
+      </li>
+      <li>All day: {{allDay}}</li>
+      <li>Members: {{members}}</li>
+      <li>Event Type: {{eventType}}</li>      
+    </ul>
+  </div>
+  <div class="anti-modal-footer">
+    <div>
+      <button type="button" id="edit-event" name="edit-event" class="btn btn-success">Edit</button>
+      <button type="button" id="remove-event" name="remove-event" class="btn btn-success">Remove</button>
+    </div>
+  </div>
+</div>
+</template>
+
+
+<template name="eventTypeControl">
+  <select class="form-control" name="eventType" value="{{eventType}}" required>
+    {{#each eventTypes}}
+      <option value="{{value}}" {{mutiselected value ../eventType}}>{{label}}</option>
+    {{/each}}
+  </select>
+</template>
+
+
+<template name="memberControl">
+  <select class="form-control" name="members" value="{{members}}" multiple="" required>
+    {{#each allmembers}}
+      <option value="{{username}}" {{mutiselected username ../members}}>{{username}}</option>
+    {{/each}}
+  </select>
+</template>

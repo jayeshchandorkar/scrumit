@@ -1,0 +1,18 @@
+.selected {
+  background-color: #e7e7e7;
+}
+
+
+.img-circular{
+ width: 200px;
+ height: 200px;
+ background-size: cover;
+ display: block;
+ padding-bottom: 20px
+}
+
+.name1{
+  font-weight: bold;
+  font-size: 25px;
+  color: #CC0000;
+}
